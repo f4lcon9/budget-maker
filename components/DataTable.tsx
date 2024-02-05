@@ -70,8 +70,12 @@ function DataTable() {
             <Table.RowHeaderCell></Table.RowHeaderCell>
             <Table.Cell className="p-3 fs-4">Balance</Table.Cell>
             <Table.Cell className="text-end fs-5 p-3">
-              {data.balance}{" "}
-              <AiFillMinusSquare className="invisible" size={24} />
+            {format(data.balance).toString().split(".")[0]}{" "}
+            {data.balance > 0 ? (
+                  <AiFillPlusSquare className="mb-1" size={24} color="green" />
+                ) : (
+                  <AiFillMinusSquare color="red" className="mb-1" size={24} />
+                )}
             </Table.Cell>
           </Table.Row>
         )}
